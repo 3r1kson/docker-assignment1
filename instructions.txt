@@ -1,0 +1,52 @@
+Dockerize BOTH apps - the Python and the Node app.
+
+1) Create appropriate images for both apps (two separate images!).
+HINT: Have a brief look at the app code to configure your images correctly!
+
+Both Dockerfiles are created inside each folder, specifying the location in the Dockerfile and when executing the build eg: docker build -f node-app/Dockerfile .
+
+
+2) Launch a container for each created image, making sure, 
+that the app inside the container works correctly and is usable.
+
+Node:
+docker build -f node-app/Dockerfile .
+
+Python:
+docker build -f python-app/Dockerfile .
+
+
+3) Re-create both containers and assign names to both containers.
+Use these names to stop and restart both containers.
+
+Node:
+docker run -p 3000:3000 --name node-assingmnet containerID
+
+Python:
+docker run -d -i --name python-assignment containerID
+
+
+4) Clean up (remove) all stopped (and running) containers, 
+clean up all created images.
+
+docker rmi ...names
+
+
+5) Re-build the images - this time with names and tags assigned to them.
+
+Node:
+docker build -t assignment-node:1 -f node-app/Dockerfile .
+
+Python:
+docker build -t assignment-python:1 -f python-app/Dockerfile .
+
+
+6) Run new containers based on the re-built images, ensuring that the containers
+are removed automatically when stopped.
+
+Node:
+docker run -p 3000:3000 --rm --name node-assignment containerID
+docker stop node-assignment
+
+Python:
+docker run -d -i --name python-assignment containerID
