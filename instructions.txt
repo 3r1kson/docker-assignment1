@@ -50,3 +50,4 @@ docker stop node-assignment
 
 Python:
 docker run -d -i --name python-assignment containerID
+it closes after calculating the body-mass-index
